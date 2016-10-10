@@ -5,6 +5,9 @@ function main() {
 	mensajes.addEventListener("click", limpiarPlaceholder)
 	var send = document.getElementById("reemEnviar");
 	send.addEventListener("click", sendMensaje);
+	var chatUno = document.getElementById("chatUno");
+	chatUno.classList.add("cursor-pointer");
+	chatUno.addEventListener("click", mostrarChat);
 }
 
 function limpiarPlaceholder(){
@@ -18,18 +21,24 @@ function sendMensaje(){
 
 function imprimirConversacion(){
 	var boxConversacion = document.getElementById("conversacion");
-	boxConversacion.classList.add("w-message");
-	boxConversacion.classList.add("w-message-out");
+			boxConversacion.classList.add("w-message");
+			boxConversacion.classList.add("w-message-out");
 	var divmensaje = document.createElement("div");
-	//divmensaje.addClass("w-message-out w-message-text");
-	divmensaje.classList.add("w-message-text");
+			divmensaje.classList.add("w-message-text");
+			divmensaje.classList.add("w-message-out");
 	var pmensaje = document.createElement("p");
-	pmensaje.innerHTML = mensajes.value;
+			pmensaje.innerHTML = mensajes.value;
 	divmensaje.insertBefore(pmensaje,divmensaje[0]);
-	var hora = document.createElement("div");
-	hora.classList.add("time");
-	boxConversacion.insertBefore(divmensaje, boxConversacion[0]);
-
+	var boxHora = document.createElement("div");
+			boxHora.classList.add("time");
+	var date = new Date().toLocaleTimeString(navigator.language, {hour:"2-digit", minute:"2-digit"});
+      boxHora.innerText = date;  
+	divmensaje.insertBefore(boxHora,divmensaje[1]);
+	boxConversacion.insertBefore(divmensaje,boxConversacion[1]);
 }
 
-//elemento.classList.add("nombre de la calse");
+//elemento.classList.add("nombre de la clase");
+
+function mostrarChat (){
+	alert("No hagas eso!");
+}

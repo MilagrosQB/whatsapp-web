@@ -365,3 +365,9 @@ aside.w-contacts header {
 .w-recent-chats::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,.2);
 }
+
+/*Lo que voy agregando*/
+
+.cursor-pointer{
+	cursor: pointer;
+}
